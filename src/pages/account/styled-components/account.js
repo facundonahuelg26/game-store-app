@@ -49,6 +49,7 @@ export const UpdateData = styled.div`
         background: #000000;
         color: #ffffff;
         border-radius:5px;
+        cursor:pointer;
     }
 `
 
