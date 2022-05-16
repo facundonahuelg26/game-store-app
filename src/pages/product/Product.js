@@ -80,12 +80,9 @@ const ProductPage = () => {
                 <ButtonForm myText="Enviar mensaje" />
                 </ContainerButtonForm>
                 </WrapperField>
-                {/* <ButtonForm condition={isAuth} myText='Enviar pregunta' /> */}
               </Form>
             )}
           </Formik>
-
-          {/* {error && <Errors>{textError}</Errors>} */}
           {messages.length === 0 
             ? <p>Todavia no se han realizado preguntas por el producto</p>
             : messages.map(msj => <Messages 
