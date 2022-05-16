@@ -27,7 +27,7 @@ const AccountPage = () => {
   ]
 
   const handleClick = (id) => {
-    navigate(`/shipping-info/:${id}`)    
+    navigate(`/game-store-app/shipping-info/:${id}`)    
   }
   
   return (
