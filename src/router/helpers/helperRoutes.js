@@ -3,7 +3,7 @@ export const routes = {
     login:'/login',
     register:'/register',
     account: '/account',
-    products:'/game-store-app/products',
+    products:'/products',
     product:'/product',
     cart:'/cart',
     shipping:'/shipping-info',
