@@ -1,5 +1,5 @@
 
-const ENDPOINT = 'https://game-store-application.herokuapp.com/orders';
+const ENDPOINT = 'https://game-store-application.herokuapp.com/api/orders';
 
   export const getPaymentService = async (client, userId, count) => {
     try {
