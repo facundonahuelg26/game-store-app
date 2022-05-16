@@ -9,7 +9,7 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <HashRouter>
+    <HashRouter basename="/">
       <App />
     </HashRouter>
   </Provider>
