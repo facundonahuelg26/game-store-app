@@ -24,7 +24,7 @@ export const getShipping = (userId) => {
     return async (dispatch) => {
         let ENDPOINT =  `user-info/${userId}`
         try {
-            const res = await fetch(`https://game-store-application.herokuapp.com/${ENDPOINT}`)
+            const res = await fetch(`https://game-store-application.herokuapp.com/api/${ENDPOINT}`)
     
             const data = await res.json();
 
