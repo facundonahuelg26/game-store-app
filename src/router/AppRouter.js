@@ -20,7 +20,7 @@ export const AppRouter = () => {
   return (
       <Suspense fallback={<Loader/>}>
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/game-store-app" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path={routes.products} element={<ProductsPage />} />
         <Route path={`${routes.product}/:name/:id`} element={<ProductPage />} />
