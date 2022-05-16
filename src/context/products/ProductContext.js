@@ -16,7 +16,7 @@ export const ProductsProvider = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setSearching(values)
-    navigate(`/products?term=${values}`);
+    navigate(`/game-store-app/products?term=${values}`);
     setValues("")
   }
   const contextValue = {
