@@ -18,7 +18,7 @@ export const Logout = ({open}) => {
     dispatch(loginSuccess({isAuth:false}))
     dispatch(clearCart())
     localStorage.removeItem('cart')
-    window.location.href = 'https://facundonahuelg26.github.io/game-store-frontend'
+    window.location.href = ' https://facundonahuelg26.github.io/game-store-app'
   }
 
   return (

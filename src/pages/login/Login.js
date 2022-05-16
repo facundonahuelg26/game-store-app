@@ -45,7 +45,7 @@ const LoginPage = () => {
                 if (userReceived.statuscode === 201) {
                   localStorage.setItem('accessJWT', JSON.stringify(userReceived.result))
                   dispatch(loginSuccess({isAuth: true}));
-                  window.location.href = 'https://facundonahuelg26.github.io/game-store-frontend'
+                  window.location.href = ' https://facundonahuelg26.github.io/game-store-app'
                 } else {
                   dispatch(loginFail({ error: true }));
                   localStorage.removeItem('accessJWT')
