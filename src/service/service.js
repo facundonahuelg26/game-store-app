@@ -1,4 +1,4 @@
-const rootRoute = 'https://game-store-application.herokuapp.com/api'
+const rootRoute = 'https://game-store-application.herokuapp.com/api/'
 
 export const createService = async (value, route) => {
   const ENDPOINT = `${rootRoute}${route}`;
