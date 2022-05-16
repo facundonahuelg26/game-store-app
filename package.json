@@ -2,7 +2,7 @@
   "name": "game-store-app",
   "version": "0.1.0",
   "public": true,
-  "homepage": "https://facundonahuelg26.github.io/game-store-frontend",
+  "homepage": "https://facundonahuelg26.github.io/game-store-app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.3",
