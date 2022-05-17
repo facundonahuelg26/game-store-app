@@ -17,7 +17,9 @@ export const Logout = ({open}) => {
     localStorage.removeItem('accessJWT')
     dispatch(loginSuccess({isAuth:false}))
     dispatch(clearCart())
+    localStorage.removeItem('shipping')
     localStorage.removeItem('cart')
+    localStorage.removeItem('list')
     window.location.href = ' https://facundonahuelg26.github.io/game-store-app'
   }
 

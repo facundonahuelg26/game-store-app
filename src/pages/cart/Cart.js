@@ -33,13 +33,8 @@ const CartPage = () => {
   
 
   const add = (id) => {
-    console.log(id)
     dispatch(addToCart(id));
   };
-
-  // React.useEffect(() => {
-  //   localStorage.setItem("list", JSON.stringify(list)); 
-  // }, [list]);
 
   React.useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); 
