@@ -14,10 +14,11 @@ import { Data } from "./components";
 import { useGetShipping } from "../../hooks/useGetShipping";
 import { useErrorTime } from "../../hooks/useErrorTime";
 import { Errors } from "../../styled-components";
+import { useLocation } from "react-router-dom";
 
 const CartPage = () => {
   const { isAuth, userData } = useSelector((state) => state.login);
-  const { cart } = useSelector((state) => state.cart);
+  const { list, cart } = useSelector((state) => state.cart);
   const { shippingData } = useSelector((state) => state.shipping);
 
   const [isDisabled, setIsDisabled] = React.useState(true);
@@ -29,15 +30,20 @@ const CartPage = () => {
   const { userId } = userData.data;
   useGetShipping(userId);
   const {textError, setTextError} = useErrorTime();
-
-  React.useEffect(() => {
-    dispatch(fetchAllProducts());
-}, [dispatch]);
+  const {search} = useLocation()
 
   const add = (id) => {
     console.log(id)
     dispatch(addToCart(id));
   };
+
+  React.useEffect(() => {
+    if(list.length === 0){
+      dispatch(fetchAllProducts(search));
+    }else{
+      return;
+    }
+  }, [list.length, dispatch, search]);
 
   React.useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); 
