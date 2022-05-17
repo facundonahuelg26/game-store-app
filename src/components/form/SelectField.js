@@ -13,11 +13,45 @@ export const SelectField = ({
 }) => {
   const [field] = useField("state");
 
+  // React.useEffect(() => {
+  //   (async () => {
+  //     const res = await getStateService(route);
+  //     setDataState(res.provincias);
+
+  //     if (
+  //       field.value !== "" &&
+  //       field.value !== "30" &&
+  //       field.value !== "86" &&
+  //       field.value !== "02" &&
+  //       field.value !== "78"
+  //     ) {
+  //       const secondRes = await getStateService(
+  //         `municipios?provincia=${field.value}&campos=id,nombre&max=100`
+  //       );
+
+  //       console.log(secondRes);
+  //       setDataCity(secondRes.municipios);
+  //     } else if (field.value === "30") {
+  //       setDataCity(citiesER);
+  //     } else if (field.value === "86") {
+  //       setDataCity(citiesST);
+  //     } else if (field.value === "02") {
+  //       setDataCity(CityCP);
+  //     }else if (field.value === "78") {
+  //       setDataCity(citiesSC);
+  //     }
+  //   })();
+  // }, [setDataState, route, field.value, setDataCity]);
+
   React.useEffect(() => {
     (async () => {
       const res = await getStateService(route);
       setDataState(res.provincias);
+    })();
+  }, [setDataState, route]);
 
+  React.useEffect(() => {
+    (async () => {
       if (
         field.value !== "" &&
         field.value !== "30" &&
@@ -28,7 +62,7 @@ export const SelectField = ({
         const secondRes = await getStateService(
           `municipios?provincia=${field.value}&campos=id,nombre&max=100`
         );
-
+    
         console.log(secondRes);
         setDataCity(secondRes.municipios);
       } else if (field.value === "30") {
@@ -41,8 +75,8 @@ export const SelectField = ({
         setDataCity(citiesSC);
       }
     })();
-  }, [setDataState, route, field.value, setDataCity]);
-
+  }, [field.value, setDataCity]);
+  
   return (
     <>
       <Field className="select-css" name="state" as="select">

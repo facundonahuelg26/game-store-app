@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { createService } from "../../service";
 import {
   addToCart,
-  fetchAllProducts,
   removeAllCart,
   removeOneCart,
 } from "../../store/slices/cart";
@@ -14,11 +13,10 @@ import { Data } from "./components";
 import { useGetShipping } from "../../hooks/useGetShipping";
 import { useErrorTime } from "../../hooks/useErrorTime";
 import { Errors } from "../../styled-components";
-import { useLocation } from "react-router-dom";
 
 const CartPage = () => {
   const { isAuth, userData } = useSelector((state) => state.login);
-  const { list, cart } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
   const { shippingData } = useSelector((state) => state.shipping);
 
   const [isDisabled, setIsDisabled] = React.useState(true);
