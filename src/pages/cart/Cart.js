@@ -13,7 +13,6 @@ import { Data } from "./components";
 import { useGetShipping } from "../../hooks/useGetShipping";
 import { useErrorTime } from "../../hooks/useErrorTime";
 import { Errors } from "../../styled-components";
-import { useFetchProducts } from "../../hooks";
 
 const CartPage = () => {
   const { isAuth, userData } = useSelector((state) => state.login);
@@ -29,9 +28,9 @@ const CartPage = () => {
   const { userId } = userData.data;
   useGetShipping(userId);
   const {textError, setTextError} = useErrorTime();
-  useFetchProducts()
 
   const add = (id) => {
+    console.log(id)
     dispatch(addToCart(id));
   };
 
