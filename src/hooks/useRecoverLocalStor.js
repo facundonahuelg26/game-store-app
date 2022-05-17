@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addData, loginData, loginSuccess } from "../store";
-import { addAllToCart } from "../store/slices/cart";
+import { addAllToCart, setProductList } from "../store/slices/cart";
 
 export const useRecoverLocalStor = () => {
     const dispatch = useDispatch();
@@ -29,6 +29,14 @@ export const useRecoverLocalStor = () => {
         if (value) {
           const saveValue = JSON.parse(value);
           dispatch(addData(saveValue));
+        }
+      }, [dispatch]);
+
+      useEffect(() => {
+        const value = localStorage.getItem("list");
+        if (value) {
+          const saveValue = JSON.parse(value);
+          dispatch(dispatch(setProductList(saveValue)));
         }
       }, [dispatch]);
 }

@@ -38,12 +38,8 @@ const CartPage = () => {
   };
 
   React.useEffect(() => {
-    if(list.length === 0){
-      dispatch(fetchAllProducts(search));
-    }else{
-      return;
-    }
-  }, [list.length, dispatch, search]);
+    localStorage.setItem("list", JSON.stringify(list)); 
+  }, [list]);
 
   React.useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); 
