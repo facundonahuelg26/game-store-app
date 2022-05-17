@@ -35,6 +35,10 @@ const ProductsPage = () => {
   useFetchProducts(search, searching, params.get('price'))
 
   React.useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(list)); 
+  }, [list]);
+
+  React.useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); 
   }, [cart]);
 

@@ -30,16 +30,16 @@ const CartPage = () => {
   const { userId } = userData.data;
   useGetShipping(userId);
   const {textError, setTextError} = useErrorTime();
-  const {search} = useLocation()
+  
 
   const add = (id) => {
     console.log(id)
     dispatch(addToCart(id));
   };
 
-  React.useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(list)); 
-  }, [list]);
+  // React.useEffect(() => {
+  //   localStorage.setItem("list", JSON.stringify(list)); 
+  // }, [list]);
 
   React.useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart)); 
