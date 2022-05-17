@@ -82,7 +82,7 @@ export const ButtonAddAndSubstract = styled.button`
     align-items:center;
     justify-content:center;
     border:none;
-    color: transparent;
+    color: #ffffff;
     cursor: pointer;
     
     svg{
