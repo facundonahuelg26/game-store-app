@@ -5,9 +5,9 @@ import { routes } from "../../router";
 import { MdLogin } from "react-icons/md";
 import { MdSwitchAccount } from "react-icons/md";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../store";
+import { addData, loginSuccess } from "../../store";
 import Button from "../button/index"
-import { clearCart } from "../../store/slices/cart";
+import { clearCart, setProductList } from "../../store/slices/cart";
 
 export const Logout = ({open}) => {
  
@@ -17,6 +17,8 @@ export const Logout = ({open}) => {
     localStorage.removeItem('accessJWT')
     dispatch(loginSuccess({isAuth:false}))
     dispatch(clearCart())
+    dispatch(addData({shippingData:null}))
+    dispatch(setProductList([]))
     localStorage.removeItem('shipping')
     localStorage.removeItem('cart')
     localStorage.removeItem('list')
