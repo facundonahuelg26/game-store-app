@@ -74,7 +74,7 @@ const CreateShippingPage = () => {
                   <FieldFormInput key={item.id} item={item} condition={send} />
                 ))}
                 <SelectField setDataState={setDataState} dataState={dataState} 
-                  route='provincias?campos=id,nombre'
+                  route='provincias'
                   dataCity={dataCity} setDataCity={setDataCity} /> 
                 <ButtonForm condition={send} myText={'Siguiente'} />
               </Form>
