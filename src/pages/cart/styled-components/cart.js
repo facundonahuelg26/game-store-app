@@ -75,7 +75,7 @@ export const ContainerButtons = styled.div`
 `
 
 
-export const ButtonAddAndSubstract = styled.div`
+export const ButtonAddAndSubstract = styled.button`
     width: 40px;
     height:40px;
     display:flex;
