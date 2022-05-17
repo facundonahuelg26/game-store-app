@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createService } from "../../service";
 import {
   addToCart,
+  fetchAllProducts,
   removeAllCart,
   removeOneCart,
 } from "../../store/slices/cart";
@@ -28,6 +29,10 @@ const CartPage = () => {
   const { userId } = userData.data;
   useGetShipping(userId);
   const {textError, setTextError} = useErrorTime();
+
+  React.useEffect(() => {
+    dispatch(fetchAllProducts());
+}, [dispatch]);
 
   const add = (id) => {
     console.log(id)
