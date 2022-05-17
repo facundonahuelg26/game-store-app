@@ -12,7 +12,7 @@ export const CartItem = ({ item, deleteItemCart, add }) => {
       <ContainerButtons>
       <ButtonAddAndSubstract
         onClick={() => deleteItemCart(item._id)}
-        disabled={item.quantity < 2 ? true : false}
+        disabled={item.quantity <= 0 ? true : false}
       >
         <svg>
           <GrSubtract />

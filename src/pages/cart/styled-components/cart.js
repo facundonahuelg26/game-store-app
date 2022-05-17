@@ -81,14 +81,13 @@ export const ButtonAddAndSubstract = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
-
+    cursor: pointer;
     
     svg{
         width: 20px;
         height:20px;
-
+        cursor: pointer;
         font-size:20px;
-        /* background : white; */
     }
 `
 

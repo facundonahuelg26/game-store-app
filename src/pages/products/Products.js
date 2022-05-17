@@ -34,6 +34,10 @@ const ProductsPage = () => {
   const navigate = useNavigate()
   useFetchProducts(search, searching, params.get('price'))
 
+  React.useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart)); 
+  }, [cart]);
+
   const add = (id, stock, value) => {
     if(stock <= value) return 
     dispatch(addToCart(id));

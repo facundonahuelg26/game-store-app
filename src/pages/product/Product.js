@@ -24,6 +24,7 @@ const ProductPage = () => {
   const { id } = useParams();
   const handleKeyDown = usePreventSubmit();
   const { userData } = useSelector((state) => state.login);
+  const { cart } = useSelector((state) => state.cart);
  
   React.useEffect(() => {
     (async () => {
@@ -31,6 +32,10 @@ const ProductPage = () => {
       setProduct(res.result);
     })();
   }, [id]);
+
+  React.useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart)); 
+  }, [cart]);
 
   React.useEffect(() => {
     (async () => {
