@@ -10,6 +10,7 @@ import { dataHelper } from './helpers';
 import { usePreventSubmit } from '../../hooks';
 import {TitleAndLinkOne, FieldFormInput, LinkTwoForm, ButtonForm, SelectField } from "../../components/form";
 import { useErrorTime } from '../../hooks/useErrorTime';
+import { Toaster, toast } from 'react-hot-toast';
 
 const CreateShippingPage = () => {
   const { userData } = useSelector((state) => state.login);
@@ -59,6 +60,7 @@ const CreateShippingPage = () => {
                 if (dataReceived.statuscode === 201) {
                   console.log("success shipping", dataReceived);
                   setSuccess(true)
+                  toast.success("Datos cargados")
                 } else {
                   setSend(false)
                   throw dataReceived
@@ -86,6 +88,7 @@ const CreateShippingPage = () => {
         </Wrapper>
           {success && <Navigate to={routes.account}/>}        
         {textError !== '' && <Errors>{textError}</Errors>}
+        {success && <Toaster/>}
       </Container>
     </>
   )
