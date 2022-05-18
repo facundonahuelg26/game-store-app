@@ -19,7 +19,8 @@ const HomePage = () => {
 
     changeUrl()
   }, [key, search])
-  console.log(key, link)
+  console.log(key, search)
+  console.log("search includes collection",search.includes("collection"))
   return (
     <Container>
       <Wrapper>
