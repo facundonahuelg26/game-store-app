@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Formik, Form } from "formik";
 import { Wrapper,Container, Errors} from '../../styled-components';
 import { shippingSchema } from './validations';
@@ -10,31 +10,16 @@ import { dataHelper } from './helpers';
 import { usePreventSubmit } from '../../hooks';
 import {TitleAndLinkOne, FieldFormInput, LinkTwoForm, ButtonForm, SelectField } from "../../components/form";
 import { useErrorTime } from '../../hooks/useErrorTime';
-import { Toaster, toast } from 'react-hot-toast';
 
 const CreateShippingPage = () => {
   const { userData } = useSelector((state) => state.login);
   const {userId} = userData.data
   const [send, setSend] = React.useState(false)
   const [success, setSuccess] = React.useState(false)
-  const [data, setData] = React.useState(null)
   const handleKeyDown = usePreventSubmit()
   const {textError, setTextError} = useErrorTime()
   const [dataState, setDataState] = React.useState([])
   const [dataCity, setDataCity] = React.useState([])
-
-  useEffect(() => {
-    if(data === null) return;
-    let timer = setTimeout(() => {
-      if(data.statuscode === 201){
-        setSuccess(true)
-      }
-    },2000);
-  
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [data])
   
 
   return (
@@ -74,8 +59,7 @@ const CreateShippingPage = () => {
                 const dataReceived = await createService(value, 'user-info');
                 if (dataReceived.statuscode === 201) {
                   console.log("success shipping", dataReceived);
-                  setData(dataReceived)
-                  toast.success("Datos cargados")
+                  setSuccess(true)
                 } else {
                   setSend(false)
                   throw dataReceived
@@ -101,7 +85,6 @@ const CreateShippingPage = () => {
           </Formik>
           <LinkTwoForm condition={send} myText='Volver a mi cuenta' route={routes.account} />
         </Wrapper>
-          {success && <Toaster/>}
           {success && <Navigate to={routes.account}/>}        
         {textError !== '' && <Errors>{textError}</Errors>}
       </Container>
