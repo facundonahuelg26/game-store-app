@@ -19,7 +19,10 @@ export const CartItem = ({ item, deleteItemCart, add }) => {
         </svg>
       </ButtonAddAndSubstract>
       <p>{item.quantity}</p>
-      <ButtonAddAndSubstract onClick={() => add(item._id)}>
+      <ButtonAddAndSubstract 
+        disabled={item.quantity >= item.stock ? true : false}
+        onClick={() => add(item._id)}
+      >
         <svg>
           <GrFormAdd />
         </svg>
