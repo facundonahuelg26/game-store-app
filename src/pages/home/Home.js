@@ -6,7 +6,7 @@ import { Container, Title, Wrapper } from "./styled-components";
 const HomePage = () => {
   const [link, setLink] = React.useState(false)
   const {key, search} = useLocation()
-  let query = new URLSearchParams(search)
+  
 
   React.useEffect(() => {
     const changeUrl = () => {
@@ -21,8 +21,8 @@ const HomePage = () => {
     changeUrl()
   }, [key, search])
   console.log(key, search)
-  let prefence = query.get('preference_id')
-  console.log("search includes collection",prefence)
+  let URLactual = window.location.href;
+  console.log(URLactual.includes("preference_id"))
   return (
     <Container>
       <Wrapper>
