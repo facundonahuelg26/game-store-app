@@ -53,10 +53,10 @@ const CreateShippingPage = () => {
                   phone:myvalues.phone,
                   userData:userId 
                 }
+                setSend(true)
                 const dataReceived = await createService(value, 'user-info');
                 if (dataReceived.statuscode === 201) {
                   console.log("success shipping", dataReceived);
-                    setSend(true)
                 } else {
                   setSend(false)
                   throw dataReceived
