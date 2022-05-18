@@ -19,7 +19,7 @@ const HomePage = () => {
 
     changeUrl()
   }, [key, search])
-  
+  console.log(key, link)
   return (
     <Container>
       <Wrapper>
