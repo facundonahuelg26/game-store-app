@@ -1,12 +1,12 @@
 import React from "react";
-import { Navigate, useLocation, useSearchParams } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { Container, Title, Wrapper } from "./styled-components";
 
 
 const HomePage = () => {
   const [link, setLink] = React.useState(false)
   const {key, search} = useLocation()
-  const [params] = useSearchParams()
+  let query = new URLSearchParams(search)
 
   React.useEffect(() => {
     const changeUrl = () => {
@@ -21,7 +21,8 @@ const HomePage = () => {
     changeUrl()
   }, [key, search])
   console.log(key, search)
-  console.log("search includes collection",params.get('preference_id'))
+  let prefence = query.get('preference_id')
+  console.log("search includes collection",prefence)
   return (
     <Container>
       <Wrapper>
