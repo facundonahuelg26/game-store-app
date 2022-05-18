@@ -5,12 +5,12 @@ import { Container, Title, Wrapper } from "./styled-components";
 
 const HomePage = () => {
   const [link, setLink] = React.useState(false)
-  const {key, search} = useLocation()
-  
+  const {key} = useLocation()
+  let URLactual = window.location.href;
 
   React.useEffect(() => {
     const changeUrl = () => {
-    if(key === "default" && search !== ''){
+    if(key === "default" && URLactual.includes("preference_id")){
       setLink(true)
       }else{
         setLink(false)
@@ -19,16 +19,14 @@ const HomePage = () => {
     }
 
     changeUrl()
-  }, [key, search])
-  console.log(key, search)
-  let URLactual = window.location.href;
-  console.log(URLactual.includes("preference_id"))
+  }, [key, URLactual])
+
   return (
     <Container>
       <Wrapper>
         <p>Compra tu pc en</p>
       <Title>Game Store</Title>
-      {link && <Navigate to='/'/>}
+      {link && <Navigate to='https://facundonahuelg26.github.io/game-store-app'/>}
       </Wrapper>
     </Container>
   );
