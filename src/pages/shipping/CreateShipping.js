@@ -15,6 +15,7 @@ const CreateShippingPage = () => {
   const { userData } = useSelector((state) => state.login);
   const {userId} = userData.data
   const [send, setSend] = React.useState(false)
+  const [success, setSuccess] = React.useState(false)
   const handleKeyDown = usePreventSubmit()
   const {textError, setTextError} = useErrorTime()
   const [dataState, setDataState] = React.useState([])
@@ -57,6 +58,7 @@ const CreateShippingPage = () => {
                 const dataReceived = await createService(value, 'user-info');
                 if (dataReceived.statuscode === 201) {
                   console.log("success shipping", dataReceived);
+                  setSuccess(true)
                 } else {
                   setSend(false)
                   throw dataReceived
@@ -82,7 +84,7 @@ const CreateShippingPage = () => {
           </Formik>
           <LinkTwoForm condition={send} myText='Volver a mi cuenta' route={routes.account} />
         </Wrapper>
-          {send && <Navigate to={routes.account}/>}        
+          {success && <Navigate to={routes.account}/>}        
         {textError !== '' && <Errors>{textError}</Errors>}
       </Container>
     </>
