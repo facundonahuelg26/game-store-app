@@ -26,7 +26,7 @@ const HomePage = () => {
       <Wrapper>
         <p>Compra tu pc en</p>
       <Title>Game Store</Title>
-      {link && <Navigate to='https://facundonahuelg26.github.io/game-store-app'/>}
+      {link && <Navigate to='/'/>}
       </Wrapper>
     </Container>
   );
