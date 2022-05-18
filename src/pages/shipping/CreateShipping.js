@@ -25,6 +25,7 @@ const CreateShippingPage = () => {
 
   useEffect(() => {
     let timer = setTimeout(() => {
+      if(data === null) return;
       if(data.statuscode === 201){
         setSuccess(true)
       }
@@ -33,7 +34,7 @@ const CreateShippingPage = () => {
     return () => {
       clearTimeout(timer)
     }
-  }, [data.statuscode])
+  }, [data])
   
 
   return (
