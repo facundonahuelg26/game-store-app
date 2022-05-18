@@ -86,9 +86,9 @@ const CreateShippingPage = () => {
           </Formik>
           <LinkTwoForm condition={send} myText='Volver a mi cuenta' route={routes.account} />
         </Wrapper>
+          {success && <Toaster/>}
           {success && <Navigate to={routes.account}/>}        
         {textError !== '' && <Errors>{textError}</Errors>}
-        {success && <Toaster/>}
       </Container>
     </>
   )
