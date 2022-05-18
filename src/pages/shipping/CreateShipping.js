@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form } from "formik";
 import { Wrapper,Container, Errors} from '../../styled-components';
 import { shippingSchema } from './validations';
@@ -17,10 +17,24 @@ const CreateShippingPage = () => {
   const {userId} = userData.data
   const [send, setSend] = React.useState(false)
   const [success, setSuccess] = React.useState(false)
+  const [data, setData] = React.useState(null)
   const handleKeyDown = usePreventSubmit()
   const {textError, setTextError} = useErrorTime()
   const [dataState, setDataState] = React.useState([])
   const [dataCity, setDataCity] = React.useState([])
+
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      if(data.statuscode === 201){
+        setSuccess(true)
+      }
+    },2000);
+  
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [data.statuscode])
+  
 
   return (
     <>
@@ -59,7 +73,7 @@ const CreateShippingPage = () => {
                 const dataReceived = await createService(value, 'user-info');
                 if (dataReceived.statuscode === 201) {
                   console.log("success shipping", dataReceived);
-                  setSuccess(true)
+                  setData(dataReceived)
                   toast.success("Datos cargados")
                 } else {
                   setSend(false)
