@@ -24,8 +24,8 @@ const CreateShippingPage = () => {
   const [dataCity, setDataCity] = React.useState([])
 
   useEffect(() => {
+    if(data === null) return;
     let timer = setTimeout(() => {
-      if(data === null) return;
       if(data.statuscode === 201){
         setSuccess(true)
       }
