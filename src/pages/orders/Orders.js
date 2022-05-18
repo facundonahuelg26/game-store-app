@@ -25,6 +25,7 @@ const OrderPage = () => {
     const changeUrl = () => {
       if (key === "default" && search !== "") {
         setLink(true);
+        localStorage.removeItem('cart')
       } else {
         setLink(false);
       }
