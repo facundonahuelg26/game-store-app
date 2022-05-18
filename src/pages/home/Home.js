@@ -11,9 +11,10 @@ const HomePage = () => {
   React.useEffect(() => {
     const changeUrl = () => {
     if(key === "default" && URLactual.includes("preference_id")){
-      setLink(true)
+      window.location.href = 'https://facundonahuelg26.github.io/game-store-app'
+      // setLink(true)
       }else{
-        setLink(false)
+        // setLink(false)
       }
       
     }
@@ -26,7 +27,7 @@ const HomePage = () => {
       <Wrapper>
         <p>Compra tu pc en</p>
       <Title>Game Store</Title>
-      {link && <Navigate to='/'/>}
+      {/* {link && <Navigate to='/'/>} */}
       </Wrapper>
     </Container>
   );
