@@ -19,6 +19,7 @@ export const LastOneItem = ({
 
   const handleClick = () => {
     window.location.href = myLink;
+    localStorage.removeItem("cart")
     setPay(true);
   };
 
